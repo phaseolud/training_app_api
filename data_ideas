@@ -1,0 +1,6 @@
+#trainingweek -> trainingdays, date
+trainingday -> exerciserows, date, name
+exerciserow -> sets, comments, exercise
+set -> weight, reps, rpe, weight-min, weight-max, time, video, comments, isrealisation
+
+exercise-> name, muscle_group, parent_exercise
