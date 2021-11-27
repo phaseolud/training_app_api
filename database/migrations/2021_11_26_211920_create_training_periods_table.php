@@ -17,6 +17,7 @@ class CreateTrainingPeriodsTable extends Migration
             $table->id();
             $table->date('start_date');
             $table->integer('n_days');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

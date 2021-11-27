@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use JetBrains\PhpStorm\ArrayShape;
 
@@ -12,12 +13,13 @@ class TrainingPeriodFactory extends Factory
      *
      * @return array
      */
-    #[ArrayShape(['start_date' => "string", 'n_days' => "int"])]
+    #[ArrayShape(['start_date' => "string", 'n_days' => "int", 'user_id' => 'int'])]
     public function definition(): array
     {
         return [
             'start_date' => $this->faker->date(),
-            'n_days' => $this->faker->randomNumber()
+            'n_days' => $this->faker->randomNumber(),
+            'user_id' => User::factory()
         ];
     }
 }

@@ -21,7 +21,7 @@ class ExerciseRow extends Model
         return $this->belongsTo(Exercise::class);
     }
 
-    public function sets(): HasMany
+    public function trainingSets(): HasMany
     {
         return $this->hasMany(TrainingSet::class);
     }

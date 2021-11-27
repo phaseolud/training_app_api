@@ -15,6 +15,8 @@ class CreateTrainingSetsTable extends Migration
     {
         Schema::create('training_sets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('exercise_row_id')->constrained();
+
             $table->float('weight')->nullable();
             $table->float('weight_min')->nullable();
             $table->float('weight_max')->nullable();
@@ -24,7 +26,9 @@ class CreateTrainingSetsTable extends Migration
             $table->integer('seconds')->nullable();
             $table->string('video')->nullable();
             $table->text('comment')->nullable();
+
             $table->boolean('is_realisation');
+            $table->boolean('completed');
             $table->integer('corresponding')->nullable();
             $table->timestamps();
         });

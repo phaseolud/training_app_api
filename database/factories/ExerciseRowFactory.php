@@ -2,7 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Exercise;
+use App\Models\TrainingDay;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use JetBrains\PhpStorm\ArrayShape;
 
 class ExerciseRowFactory extends Factory
 {
@@ -11,10 +14,12 @@ class ExerciseRowFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    #[ArrayShape(['training_day_id' =>  "int", 'exercise_id' => "int", 'comments' => "string"])] public function definition()
     {
         return [
-            //
+            'training_day_id' => TrainingDay::factory(),
+            'exercise_id' => Exercise::factory(),
+            'comments' => $this->faker->paragraph()
         ];
     }
 }
