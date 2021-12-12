@@ -15,9 +15,9 @@ class CreateExerciseRowsTable extends Migration
     {
         Schema::create('exercise_rows', function (Blueprint $table) {
             $table->id();
-            $table->text('comments');
-            $table->foreignId('training_day_id');
-            $table->foreignId('exercise_id');
+            $table->text('comments')->nullable();
+            $table->foreignId('training_day_id')->constrained();
+            $table->foreignId('exercise_id')->constrained();
             $table->timestamps();
         });
     }

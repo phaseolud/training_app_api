@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\FetchFromSheetsController;
+use App\Http\Controllers\TrainingDayController;
+use App\Http\Controllers\TrainingPeriodController;
+use App\Http\Controllers\TrainingSetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/login/', [AuthController::class, 'redirectToProvider'])->name('login');
+Route::get('login/google/callback', [AuthController::class, 'handleProviderCallback']);
+
+Route::middleware(['auth:sanctum'])->group( function () {
+    Route::apiResource('exercises', ExerciseController::class);
+    Route::get('training_periods/fetch', FetchFromSheetsController::class);
+    Route::apiResource('training_periods', TrainingPeriodController::class);
+    Route::apiResource('training_days', TrainingDayController::class);
+    Route::apiResource('training_sets', TrainingSetController::class);
 });
+

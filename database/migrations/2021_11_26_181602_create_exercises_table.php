@@ -18,6 +18,7 @@ class CreateExercisesTable extends Migration
             $table->string('name');
             $table->json('muscle_groups')->nullable();
             $table->integer('parent_id')->nullable();
+            $table->boolean('checked');
             $table->timestamps();
         });
     }

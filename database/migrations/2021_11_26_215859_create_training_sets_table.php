@@ -21,11 +21,18 @@ class CreateTrainingSetsTable extends Migration
             $table->float('weight_min')->nullable();
             $table->float('weight_max')->nullable();
 
+            # used for the set order
+            $table->integer('index');
+
             $table->integer('reps')->nullable();
+            $table->integer('reps_min')->nullable();
+            $table->integer('reps_max')->nullable();
+
             $table->float('rpe')->nullable();
             $table->integer('seconds')->nullable();
             $table->string('video')->nullable();
             $table->text('comment')->nullable();
+            $table->boolean('amrap')->default(false);
 
             $table->boolean('is_realisation');
             $table->boolean('completed');

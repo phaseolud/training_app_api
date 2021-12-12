@@ -19,7 +19,7 @@ class CreateTrainingDaysTable extends Migration
             $table->string('name')->nullable();
             $table->date('date')->nullable();
             $table->boolean('completed');
-            $table->foreignId('training_period_id');
+            $table->foreignId('training_period_id')->constrained();
             $table->timestamps();
         });
     }
