@@ -21,6 +21,7 @@ class ExerciseFactory extends Factory
             'name' => $this->faker->word(),
             'muscle_groups' => $this->faker->randomElements(MuscleGroup::cases(),2),
             'parent_id' => $this->faker->boolean() ? Exercise::factory() : null,
+            'checked' => false,
         ];
     }
 }

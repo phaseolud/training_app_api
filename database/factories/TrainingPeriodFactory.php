@@ -13,11 +13,12 @@ class TrainingPeriodFactory extends Factory
      *
      * @return array
      */
-    #[ArrayShape(['start_date' => "string", 'n_days' => "int", 'user_id' => 'int'])]
+//    #[ArrayShape(['start_date' => "string", 'n_days' => "int", 'user_id' => 'int'])]
     public function definition(): array
     {
         return [
-            'start_date' => $this->faker->date(),
+            'name' => $this->faker->date('d-m-Y') . 'Period',
+            'start_date' => $this->faker->date('d-m-Y'),
             'n_days' => $this->faker->randomNumber(),
             'user_id' => User::factory()
         ];

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\ExerciseRowController;
 use App\Http\Controllers\FetchFromSheetsController;
 use App\Http\Controllers\TrainingDayController;
 use App\Http\Controllers\TrainingPeriodController;
@@ -28,6 +29,5 @@ Route::middleware(['auth:sanctum'])->group( function () {
     Route::get('training_periods/fetch', FetchFromSheetsController::class);
     Route::apiResource('training_periods', TrainingPeriodController::class);
     Route::apiResource('training_days', TrainingDayController::class);
-    Route::apiResource('training_sets', TrainingSetController::class);
 });
 

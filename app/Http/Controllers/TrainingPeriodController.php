@@ -10,12 +10,12 @@ class TrainingPeriodController extends Controller
     public function index()
     {
         # return user->training_periods
-        return TrainingPeriod::all();
+        return auth()->user()->trainingPeriods;
     }
 
     public function show(TrainingPeriod $trainingPeriod)
     {
-        return $trainingPeriod;
+        return $trainingPeriod->load('trainingDays');
     }
 
     public function destroy(TrainingPeriod $trainingPeriod)

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $training_periods = TrainingPeriod::factory()->count(2)->create(['user_id' => 1]);
+        $user = User::factory()->create();
+        $training_periods = TrainingPeriod::factory()->count(2)->create(['user_id' => $user->id]);
         $exercises = Exercise::factory()->count(10)->create();
         foreach ($training_periods as $training_period)
             $training_days = TrainingDay::factory()->count(4)->create(['training_period_id' => $training_period->id]);
